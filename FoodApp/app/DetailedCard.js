@@ -1,10 +1,9 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { useLocalSearchParams } from "expo-router";
 
 export default function DetailedCard() {
-  const route = useRoute();
-  const { comida } = route.params;
+  const comida = useLocalSearchParams();
 
   return (
     <View style={styles.container}>

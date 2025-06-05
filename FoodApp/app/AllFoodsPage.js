@@ -3,6 +3,7 @@ import FoodItem from "../components/foodItem";
 import useFetchData from "../hooks/fetchData";
 import useFunctions from "../hooks/useFunctions";
 import { useEffect } from "react";
+import { TouchableOpacity } from "react-native";
 
 export default function AllFoodsPage() {
   const { comidas, loading, fetchComidas } = useFetchData();
@@ -43,9 +44,9 @@ export default function AllFoodsPage() {
         <Text style={styles.receiptTitle}>Receipt</Text>
         <View style={styles.inlineRow}>
           <Text style={styles.totalText}>Total: ${total}</Text>
-          <View style={styles.buttonContainer}>
+          <TouchableOpacity style={styles.buttonContainer}>
             <Text style={styles.verOrdenBtn}>Ver orden</Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
     </View>
@@ -74,13 +75,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#eee",
     justifyContent: "center",
     alignItems: "flex-start",
-    paddingHorizontal: 24,
-    paddingVertical: 12
+    paddingHorizontal: 24
   },
   receiptTitle: {
     fontSize: 24,
     fontWeight: "bold",
-    marginBottom: 8,
+    marginBottom: 16,
     alignSelf: "flex-start"
   },
   inlineRow: {

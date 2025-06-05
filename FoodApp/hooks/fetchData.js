@@ -4,7 +4,7 @@ function useFetchData() {
   const [comida, setComida] = useState({});
   const [comidas, setComidas] = useState([]);
   const [loading, setLoading] = useState(true);
-  var URLngrok = `https://b32e-190-64-49-12.ngrok-free.app`;
+  var URLngrok = `https://73cb-190-64-49-12.ngrok-free.app`;
   const fetchComidas = async () => {
     try {
       const URL = `${URLngrok}/comidas`;

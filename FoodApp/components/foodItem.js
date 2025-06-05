@@ -1,20 +1,20 @@
 import React from "react";
 import { StyleSheet, View, TouchableOpacity, Text } from "react-native";
-import { useRouter } from "expo-router"; // Cambia el import
+import { useRouter } from "expo-router";
 
 function FoodItem({ comida, addOrder, orderCantidad }) {
-  const router = useRouter(); // Usa useRouter de expo-router
+  const router = useRouter();
 
   return (
     <TouchableOpacity
       style={[styles.foodItem, orderCantidad === 0 && styles.disabledFoodItem]}
       onPress={() => addOrder(comida)}
-      // onLongPress={() =>
-      //   router.push({
-      //     pathname: "/detailed-card",
-      //     params: { ...comida }
-      //   })
-      // }
+      onLongPress={() =>
+        router.push({
+          pathname: "/DetailedCard",
+          params: { ...comida }
+        })
+      }
       disabled={orderCantidad === 0}
     >
       <View>
