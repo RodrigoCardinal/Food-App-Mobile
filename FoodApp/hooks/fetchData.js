@@ -4,7 +4,7 @@ function useFetchData() {
   const [comida, setComida] = useState({});
   const [comidas, setComidas] = useState([]);
   const [loading, setLoading] = useState(true);
-  var URLngrok = `https://73cb-190-64-49-12.ngrok-free.app`;
+  var URLngrok = `https://a5ae-2800-a4-152a-3000-b4d6-574d-212-4764.ngrok-free.app`;
   const fetchComidas = async () => {
     try {
       const URL = `${URLngrok}/comidas`;
@@ -58,13 +58,39 @@ function useFetchData() {
       });
   };
 
+  const agregarCantidadAJson = async (id, cantidad) => {
+    try {
+      const URL = `${URLngrok}/comidas/${id}`;
+      const response = await fetch(URL, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ stock: cantidad })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(
+          `Error al actualizar el stock: ${response.status} ${
+            response.statusText
+          } - ${errorData.message || ""}`
+        );
+      }
+
+      console.log("Stock actualizado exitosamente.");
+    } catch (error) {
+      console.error("Hubo un problema con la operación fetch:", error);
+      throw error;
+    }
+  };
+
   return {
     comidas,
     comida,
     loading,
     fetchComidas,
     fetchUnaComida,
-    finalizarCompra
+    finalizarCompra,
+    agregarCantidadAJson
   };
 }
 

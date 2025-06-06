@@ -1,6 +1,8 @@
-import { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 
-function useFunctions() {
+const FunctionsContext = createContext();
+
+export function FunctionsProvider({ children }) {
   const [orders, setOrders] = useState([]);
 
   const addOrder = (item) => {
@@ -46,13 +48,27 @@ function useFunctions() {
     setOrders(newOrders);
   };
 
-  return {
-    orders,
-    addOrder,
-    removeOrder,
-    removeOneOrder,
-    setOrders
-  };
+  const total = orders.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
+
+  return (
+    <FunctionsContext.Provider
+      value={{
+        orders,
+        addOrder,
+        removeOrder,
+        removeOneOrder,
+        setOrders,
+        total
+      }}
+    >
+      {children}
+    </FunctionsContext.Provider>
+  );
 }
 
-export default useFunctions;
+export function useFunctions() {
+  return useContext(FunctionsContext);
+}

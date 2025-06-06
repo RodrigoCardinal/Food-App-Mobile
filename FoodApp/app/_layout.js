@@ -1,30 +1,44 @@
 import { Stack } from "expo-router";
+import { FunctionsProvider } from "../hooks/useFunctions";
 
 export default function Layout() {
   return (
-    <Stack>
-      <Stack.Screen
-        name="AllFoodsPage"
-        options={{
-          title: "FoodApp",
-          headerTitleStyle: {
-            fontSize: 24,
-            fontWeight: "semibold",
-            color: "blue"
-          }
-        }}
-      />
-      <Stack.Screen
-        name="DetailedCard"
-        options={{
-          title: "Detalle de comida",
-          headerTitleStyle: {
-            fontSize: 24,
-            fontWeight: "semibold",
-            color: "blue"
-          }
-        }}
-      />
-    </Stack>
+    <FunctionsProvider>
+      <Stack>
+        <Stack.Screen
+          name="AllFoodsPage"
+          options={{
+            title: "FoodApp",
+            headerTitleStyle: {
+              fontSize: 24,
+              fontWeight: "semibold",
+              color: "blue"
+            }
+          }}
+        />
+        <Stack.Screen
+          name="DetailedCard"
+          options={{
+            title: "Food Details",
+            headerTitleStyle: {
+              fontSize: 24,
+              fontWeight: "semibold",
+              color: "blue"
+            }
+          }}
+        />
+        <Stack.Screen
+          name="Receipt"
+          options={{
+            title: "FoodApp Receipt",
+            headerTitleStyle: {
+              fontSize: 24,
+              fontWeight: "semibold",
+              color: "blue"
+            }
+          }}
+        />
+      </Stack>
+    </FunctionsProvider>
   );
 }

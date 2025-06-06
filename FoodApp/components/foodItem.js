@@ -15,7 +15,6 @@ function FoodItem({ comida, addOrder, orderCantidad }) {
           params: { ...comida }
         })
       }
-      disabled={orderCantidad === 0}
     >
       <View>
         <Text style={styles.foodIcon}>{comida.img}</Text>
