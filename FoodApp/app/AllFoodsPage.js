@@ -2,7 +2,6 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import FoodItem from "../components/foodItem";
 import useFetchData from "../hooks/fetchData";
 import { useFunctions } from "../hooks/useFunctions";
-import { useEffect } from "react";
 import { TouchableOpacity } from "react-native";
 
 import { useFocusEffect } from "@react-navigation/native";
@@ -23,6 +22,15 @@ export default function AllFoodsPage() {
 
   return (
     <View style={styles.pageContainer}>
+      <View style={styles.header}>
+        <Text style={styles.headerTitle}>FoodApp</Text>
+        <TouchableOpacity
+          style={styles.addBtn}
+          onPress={() => router.push("/AgregarComida")}
+        >
+          <Text style={styles.addBtnText}>+ Add</Text>
+        </TouchableOpacity>
+      </View>
       <ScrollView
         contentContainerStyle={styles.scroll}
         style={styles.scrollView}
@@ -66,33 +74,40 @@ export default function AllFoodsPage() {
           <Text style={styles.verOrdenBtn}>Ver orden</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity
-        style={styles.fab}
-        onPress={() => router.push("/AgregarComida")}
-      >
-        <Text style={styles.fabText}>+</Text>
-      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  fab: {
-    position: "absolute",
-    top: 16,
-    right: 2,
-    backgroundColor: "blue",
-    width: 50,
-    height: 50,
-    borderRadius: 10,
+  header: {
+    width: "100%",
+    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "space-between",
+    paddingHorizontal: 16,
+    paddingTop: 40,
+    paddingBottom: 8,
+    backgroundColor: "#fff",
+    borderBottomWidth: 1,
+    borderBottomColor: "#e0e0e0"
   },
-  fabText: {
-    position: "absolute",
+  headerTitle: {
+    fontSize: 24,
+    fontWeight: "500",
+    color: "blue"
+  },
+  addBtn: {
+    backgroundColor: "blue",
+    borderRadius: 10,
+    paddingHorizontal: 14,
+    paddingVertical: 2
+  },
+  addBtnText: {
     color: "#fff",
-    fontSize: 40,
-    fontWeight: "bold"
+    fontSize: 18,
+    fontWeight: "400",
+    textTransform: "uppercase",
+    letterSpacing: 1
   },
   pageContainer: {
     flex: 1,

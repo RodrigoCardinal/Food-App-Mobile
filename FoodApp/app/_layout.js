@@ -8,12 +8,13 @@ export default function Layout() {
         <Stack.Screen
           name="AllFoodsPage"
           options={{
-            title: "FoodApp",
-            headerTitleStyle: {
-              fontSize: 24,
-              fontWeight: "semibold",
-              color: "blue"
-            }
+            // title: "FoodApp",
+            // headerTitleStyle: {
+            //   fontSize: 24,
+            //   fontWeight: "semibold",
+            //   color: "blue"
+            // }
+            headerShown: false
           }}
         />
         <Stack.Screen
@@ -31,6 +32,17 @@ export default function Layout() {
           name="Receipt"
           options={{
             title: "FoodApp Receipt",
+            headerTitleStyle: {
+              fontSize: 24,
+              fontWeight: "semibold",
+              color: "blue"
+            }
+          }}
+        />
+        <Stack.Screen
+          name="AgregarComida"
+          options={{
+            title: "Add Food",
             headerTitleStyle: {
               fontSize: 24,
               fontWeight: "semibold",

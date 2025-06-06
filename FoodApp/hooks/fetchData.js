@@ -4,7 +4,7 @@ function useFetchData() {
   const [comida, setComida] = useState({});
   const [comidas, setComidas] = useState([]);
   const [loading, setLoading] = useState(true);
-  var URLngrok = `https://a5ae-2800-a4-152a-3000-b4d6-574d-212-4764.ngrok-free.app`;
+  var URLngrok = `https://feb4-2800-a4-152a-3000-b4d6-574d-212-4764.ngrok-free.app`;
   const fetchComidas = async () => {
     try {
       const URL = `${URLngrok}/comidas`;
@@ -83,6 +83,42 @@ function useFetchData() {
     }
   };
 
+  const agregarComidaAJson = async (img, name, price, stock) => {
+    try {
+      if (!(img && name && price && stock)) {
+        return;
+      }
+      const nuevoProducto = {
+        img,
+        name,
+        price: parseFloat(price),
+        stock: parseInt(stock)
+      };
+
+      const URL = `${URLngrok}/comidas`;
+      const response = await fetch(URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(nuevoProducto)
+      });
+
+      if (!response.ok) {
+        let errorData = {};
+        try {
+          errorData = await response.json();
+        } catch (e) {}
+        throw new Error(
+          `Error al agregar comida: ${response.status} ${
+            response.statusText
+          } - ${errorData.message || ""}`
+        );
+      }
+    } catch (error) {
+      console.error("Hubo un problema con la operación fetch:", error);
+      throw error;
+    }
+  };
+
   return {
     comidas,
     comida,
@@ -90,7 +126,8 @@ function useFetchData() {
     fetchComidas,
     fetchUnaComida,
     finalizarCompra,
-    agregarCantidadAJson
+    agregarCantidadAJson,
+    agregarComidaAJson
   };
 }
 

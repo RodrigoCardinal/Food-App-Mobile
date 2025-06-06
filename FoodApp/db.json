@@ -12,21 +12,21 @@
       "img": "🍕",
       "name": "Pizza",
       "price": 189,
-      "stock": 42
+      "stock": 45
     },
     {
       "id": "3",
       "img": "🍣",
       "name": "Sushi",
       "price": 132,
-      "stock": 50
+      "stock": 53
     },
     {
       "id": "4",
       "img": "🌮",
       "name": "Taco",
       "price": 175,
-      "stock": 2
+      "stock": 12
     },
     {
       "id": "5",
@@ -61,7 +61,7 @@
       "img": "🥞",
       "name": "Panqueques",
       "price": 160,
-      "stock": 1
+      "stock": 2
     },
     {
       "id": "10",
@@ -75,7 +75,7 @@
       "img": "a",
       "name": "a",
       "price": 22,
-      "stock": 22
+      "stock": 24
     },
     {
       "id": "1d52",
@@ -83,6 +83,13 @@
       "name": "sss",
       "price": 23,
       "stock": 11
+    },
+    {
+      "id": "af7b",
+      "img": "😦",
+      "name": "Prueba",
+      "price": 7,
+      "stock": 6
     }
   ],
   "Orders": []
