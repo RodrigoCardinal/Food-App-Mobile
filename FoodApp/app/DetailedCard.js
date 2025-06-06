@@ -13,9 +13,7 @@ export default function DetailedCard() {
   const [cantidad, setCantidad] = useState(1);
 
   const agregarCantidad = () => {
-    console.log(cantidadTotal);
     const nuevaCantidad = cantidadTotal + cantidad;
-    console.log(nuevaCantidad);
     agregarCantidadAJson(comida.id, nuevaCantidad);
     setCantidadTotal(nuevaCantidad);
   };

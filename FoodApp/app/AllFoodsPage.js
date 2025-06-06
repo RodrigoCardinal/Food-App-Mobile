@@ -85,14 +85,15 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 16,
-    paddingTop: 40,
+    paddingTop: 42,
     paddingBottom: 8,
     backgroundColor: "#fff",
     borderBottomWidth: 1,
-    borderBottomColor: "#e0e0e0"
+    borderBottomColor: "#e0e0e0",
+    elevation: 3
   },
   headerTitle: {
-    fontSize: 24,
+    fontSize: 32,
     fontWeight: "500",
     color: "blue"
   },
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
   },
   addBtnText: {
     color: "#fff",
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "400",
     textTransform: "uppercase",
     letterSpacing: 1

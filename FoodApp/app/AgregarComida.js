@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     color: "#222"
   },
   button: {
-    backgroundColor: "#007bff",
+    backgroundColor: "blue",
     borderRadius: 8,
     paddingVertical: 14,
     paddingHorizontal: 60,
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     padding: 10
   },
   cancelBtnText: {
-    color: "#007bff",
+    color: "blue",
     fontSize: 16,
     fontWeight: "bold"
   }

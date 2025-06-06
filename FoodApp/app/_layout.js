@@ -22,7 +22,7 @@ export default function Layout() {
           options={{
             title: "Food Details",
             headerTitleStyle: {
-              fontSize: 24,
+              fontSize: 32,
               fontWeight: "semibold",
               color: "blue"
             }
@@ -33,7 +33,7 @@ export default function Layout() {
           options={{
             title: "FoodApp Receipt",
             headerTitleStyle: {
-              fontSize: 24,
+              fontSize: 32,
               fontWeight: "semibold",
               color: "blue"
             }
@@ -44,7 +44,7 @@ export default function Layout() {
           options={{
             title: "Add Food",
             headerTitleStyle: {
-              fontSize: 24,
+              fontSize: 32,
               fontWeight: "semibold",
               color: "blue"
             }

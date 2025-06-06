@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 10,
     marginVertical: 4,
-    gap: 8
+    gap: 8,
+    paddingHorizontal: 16
   },
   orderText: {
     fontSize: 18,
