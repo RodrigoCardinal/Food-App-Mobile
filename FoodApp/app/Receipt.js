@@ -10,8 +10,14 @@ import Order from "../components/order";
 import { useFunctions } from "../hooks/useFunctions";
 
 function Receipt() {
-  const { orders, total, addOrder, removeOrder, removeOneOrder } =
-    useFunctions();
+  const {
+    orders,
+    total,
+    addOrder,
+    removeOrder,
+    removeOneOrder,
+    finalizarCompra
+  } = useFunctions();
 
   return (
     <View style={styles.container}>
@@ -31,7 +37,9 @@ function Receipt() {
       <View style={styles.footer}>
         <Text style={styles.total}>Total: ${total}</Text>
         <TouchableOpacity style={styles.finalizarBtn}>
-          <Text style={styles.finalizarBtnText}>Finalizar compra</Text>
+          <Text style={styles.finalizarBtnText} onPress={finalizarCompra}>
+            Finalizar compra
+          </Text>
         </TouchableOpacity>
       </View>
     </View>

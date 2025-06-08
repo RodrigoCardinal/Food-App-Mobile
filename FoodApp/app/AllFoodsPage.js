@@ -1,17 +1,15 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
 import FoodItem from "../components/foodItem";
-import useFetchData from "../hooks/fetchData";
 import { useFunctions } from "../hooks/useFunctions";
 import { TouchableOpacity } from "react-native";
-
 import { useFocusEffect } from "@react-navigation/native";
 import { useCallback } from "react";
 
 import { useRouter } from "expo-router";
 
 export default function AllFoodsPage() {
-  const { comidas, loading, fetchComidas } = useFetchData();
-  const { orders, total, addOrder } = useFunctions();
+  const { comidas, loading, fetchComidas, orders, total, addOrder } =
+    useFunctions();
   const router = useRouter();
 
   useFocusEffect(

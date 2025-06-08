@@ -8,7 +8,7 @@ import {
   Alert
 } from "react-native";
 import { useRouter } from "expo-router";
-import useFetchData from "../hooks/fetchData";
+import { useFunctions } from "../hooks/useFunctions";
 
 export default function AgregarComida() {
   const [name, setName] = useState("");
@@ -16,7 +16,7 @@ export default function AgregarComida() {
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
   const router = useRouter();
-  const { agregarComidaAJson } = useFetchData();
+  const { agregarComidaAJson } = useFunctions();
 
   const handleAgregar = async () => {
     if (!name || !img || !price || !stock) {

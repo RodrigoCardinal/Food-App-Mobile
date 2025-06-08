@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { useLocalSearchParams } from "expo-router";
-import useFetchData from "../hooks/fetchData";
+import { useFunctions } from "../hooks/useFunctions";
 import { useState } from "react";
 export default function DetailedCard() {
   const comida = useLocalSearchParams();
-  const { agregarCantidadAJson } = useFetchData();
+  const { agregarCantidadAJson } = useFunctions();
   const [cantidadTotal, setCantidadTotal] = useState(
     comida.stock ? parseInt(comida.stock) : 0
   );
