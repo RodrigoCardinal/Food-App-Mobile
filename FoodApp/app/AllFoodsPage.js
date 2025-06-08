@@ -2,6 +2,7 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import FoodItem from "../components/foodItem";
 import { useFunctions } from "../hooks/useFunctions";
 import { TouchableOpacity } from "react-native";
+
 import { useFocusEffect } from "@react-navigation/native";
 import { useCallback } from "react";
 
@@ -29,48 +30,50 @@ export default function AllFoodsPage() {
           <Text style={styles.addBtnText}>+ Add</Text>
         </TouchableOpacity>
       </View>
-      <ScrollView
-        contentContainerStyle={styles.scroll}
-        style={styles.scrollView}
-      >
-        <View style={styles.container}>
-          {loading ? (
-            <Text>Cargando comidas...</Text>
-          ) : comidas.length === 0 ? (
-            <Text>No hay comidas disponibles</Text>
-          ) : (
-            comidas.map((comida, idx) => (
-              <FoodItem
-                key={comida.id || idx}
-                comida={comida}
-                orderCantidad={
-                  comida.stock -
-                  (orders.find((element) => element.id === comida.id)
-                    ?.quantity ?? 0)
-                }
-                addOrder={() => addOrder(comida)}
-              />
-            ))
-          )}
-        </View>
-      </ScrollView>
-      <View style={styles.footer}>
-        <Text style={styles.total}>Total: ${total}</Text>
-        <TouchableOpacity
-          style={[
-            styles.buttonContainer,
-            { opacity: orders.length === 0 ? 0.5 : 1 }
-          ]}
-          onPress={() =>
-            router.push({
-              pathname: "/Receipt",
-              params: { orders: JSON.stringify(orders) }
-            })
-          }
-          disabled={orders.length === 0}
+      <View style={styles.viewSinHeader}>
+        <ScrollView
+          contentContainerStyle={styles.scroll}
+          style={styles.scrollView}
         >
-          <Text style={styles.verOrdenBtn}>Ver orden</Text>
-        </TouchableOpacity>
+          <View style={styles.container}>
+            {loading ? (
+              <Text>Cargando comidas...</Text>
+            ) : comidas.length === 0 ? (
+              <Text>No hay comidas disponibles</Text>
+            ) : (
+              comidas.map((comida, idx) => (
+                <FoodItem
+                  key={comida.id || idx}
+                  comida={comida}
+                  orderCantidad={
+                    comida.stock -
+                    (orders.find((element) => element.id === comida.id)
+                      ?.quantity ?? 0)
+                  }
+                  addOrder={() => addOrder(comida)}
+                />
+              ))
+            )}
+          </View>
+        </ScrollView>
+        <View style={styles.footer}>
+          <Text style={styles.total}>Total: ${total}</Text>
+          <TouchableOpacity
+            style={[
+              styles.verOrdenBtn,
+              { opacity: orders.length === 0 ? 0.5 : 1 }
+            ]}
+            onPress={() =>
+              router.push({
+                pathname: "/Receipt",
+                params: { orders: JSON.stringify(orders) }
+              })
+            }
+            disabled={orders.length === 0}
+          >
+            <Text style={styles.verOrdenText}>Ver orden</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -113,6 +116,9 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: "#fff"
   },
+  viewSinHeader: {
+    flex: 1
+  },
   scrollView: {
     flex: 1
   },
@@ -126,7 +132,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     width: "100%",
-    height: "17%",
+    height: "18%",
     alignItems: "center",
     marginTop: "auto",
     borderTopWidth: 2,
@@ -134,35 +140,18 @@ const styles = StyleSheet.create({
     backgroundColor: "#fafafa",
     paddingBottom: 16
   },
-  receiptTitle: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginBottom: 16,
-    alignSelf: "flex-start"
-  },
-  inlineRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    width: "100%",
-    gap: 16
-  },
   total: {
     fontSize: 20,
     fontWeight: "bold",
     marginVertical: 16
   },
-  buttonContainer: {
-    backgroundColor: "#007bff",
-    borderRadius: 4,
-    overflow: "hidden"
-  },
   verOrdenBtn: {
     backgroundColor: "blue",
     borderRadius: 8,
     paddingVertical: 12,
-    paddingHorizontal: 32,
-
+    paddingHorizontal: 32
+  },
+  verOrdenText: {
     color: "#fff",
     fontSize: 18,
     fontWeight: "bold",

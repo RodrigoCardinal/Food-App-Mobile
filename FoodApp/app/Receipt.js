@@ -4,10 +4,13 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  ScrollView
+  ScrollView,
+  Alert
 } from "react-native";
 import Order from "../components/order";
 import { useFunctions } from "../hooks/useFunctions";
+
+import { useRouter } from "expo-router";
 
 function Receipt() {
   const {
@@ -18,6 +21,20 @@ function Receipt() {
     removeOneOrder,
     finalizarCompra
   } = useFunctions();
+
+  const router = useRouter();
+
+  const handleCompra = async () => {
+    await finalizarCompra();
+    Alert.alert("Compra finalizada", "Gracias por tu compra, ¡vuelve pronto!", [
+      {
+        text: "GRACIAS!",
+        onPress: () => {
+          router.back();
+        }
+      }
+    ]);
+  };
 
   return (
     <View style={styles.container}>
@@ -36,10 +53,8 @@ function Receipt() {
       </ScrollView>
       <View style={styles.footer}>
         <Text style={styles.total}>Total: ${total}</Text>
-        <TouchableOpacity style={styles.finalizarBtn}>
-          <Text style={styles.finalizarBtnText} onPress={finalizarCompra}>
-            Finalizar compra
-          </Text>
+        <TouchableOpacity style={styles.finalizarBtn} onPress={handleCompra}>
+          <Text style={styles.finalizarBtnText}>Finalizar compra</Text>
         </TouchableOpacity>
       </View>
     </View>
@@ -63,7 +78,7 @@ const styles = StyleSheet.create({
   },
   footer: {
     width: "100%",
-    height: "17%",
+    height: "18%",
     alignItems: "center",
     marginTop: "auto",
     borderTopWidth: 2,

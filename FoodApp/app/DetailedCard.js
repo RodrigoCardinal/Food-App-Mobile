@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from "react-native";
 import { useLocalSearchParams } from "expo-router";
 import { useFunctions } from "../hooks/useFunctions";
 import { useState } from "react";
+import { useRouter } from "expo-router";
+
 export default function DetailedCard() {
   const comida = useLocalSearchParams();
   const { agregarCantidadAJson } = useFunctions();
@@ -11,6 +13,23 @@ export default function DetailedCard() {
   );
 
   const [cantidad, setCantidad] = useState(1);
+  const router = useRouter();
+
+  const handleAgregarCantidad = () => {
+    agregarCantidad();
+    Alert.alert(
+      "Cantidad agregada",
+      `Se han agregado ${cantidad} unidades de ${comida.name}.`,
+      [
+        {
+          text: "OK",
+          onPress: () => {
+            router.back();
+          }
+        }
+      ]
+    );
+  };
 
   const agregarCantidad = () => {
     const nuevaCantidad = cantidadTotal + cantidad;
@@ -50,7 +69,7 @@ export default function DetailedCard() {
 
       <TouchableOpacity
         style={styles.agregarAJsonBtn}
-        onPress={() => agregarCantidad()}
+        onPress={() => handleAgregarCantidad()}
       >
         <Text style={styles.agregarAJsonText}>Agregar</Text>
       </TouchableOpacity>

@@ -5,14 +5,14 @@
       "img": "🍔",
       "name": "Hamburguesa",
       "price": 157,
-      "stock": 158
+      "stock": 140
     },
     {
       "id": "2",
       "img": "🍕",
       "name": "Pizza",
       "price": 189,
-      "stock": 50
+      "stock": 40
     },
     {
       "id": "3",
@@ -26,7 +26,7 @@
       "img": "🌮",
       "name": "Taco",
       "price": 175,
-      "stock": 12
+      "stock": 2
     },
     {
       "id": "5",
@@ -111,6 +111,13 @@
       "name": "PruebaUF",
       "price": 53,
       "stock": 3
+    },
+    {
+      "id": "598f",
+      "img": "😈",
+      "name": "PruebaVideo",
+      "price": 77,
+      "stock": 7
     }
   ],
   "Orders": []
