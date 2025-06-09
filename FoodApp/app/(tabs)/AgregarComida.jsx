@@ -5,10 +5,10 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  Alert
+  Alert,
 } from "react-native";
 import { useRouter } from "expo-router";
-import { useFunctions } from "../hooks/useFunctions";
+import { useFunctions } from "../../hooks/useFunctions";
 
 export default function AgregarComida() {
   const [name, setName] = useState("");
@@ -26,8 +26,14 @@ export default function AgregarComida() {
     try {
       await agregarComidaAJson(img, name, parseInt(price), parseInt(stock));
       Alert.alert("Éxito", "Comida agregada correctamente.", [
-        { text: "OK", onPress: () => router.back() }
+        { text: "OK", onPress: () => router.back() },
       ]);
+
+      // Limpiar campos manualmente
+      setName("");
+      setImg("");
+      setPrice("");
+      setStock("");
     } catch (error) {
       Alert.alert("Error", "No se pudo agregar la comida.");
     }
@@ -80,13 +86,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     padding: 32,
-    alignItems: "center"
+    alignItems: "center",
   },
   title: {
     fontSize: 28,
     fontWeight: "bold",
     color: "blue",
-    marginBottom: 32
+    marginBottom: 32,
   },
   input: {
     width: "100%",
@@ -97,28 +103,28 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: 18,
     backgroundColor: "#fafafa",
-    color: "#222"
+    color: "#222",
   },
   button: {
     backgroundColor: "blue",
     borderRadius: 8,
     paddingVertical: 14,
     paddingHorizontal: 60,
-    marginTop: 16
+    marginTop: 16,
   },
   buttonText: {
     color: "#fff",
     fontSize: 20,
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
   },
   cancelBtn: {
     marginTop: 16,
-    padding: 10
+    padding: 10,
   },
   cancelBtnText: {
     color: "blue",
     fontSize: 16,
-    fontWeight: "bold"
-  }
+    fontWeight: "bold",
+  },
 });

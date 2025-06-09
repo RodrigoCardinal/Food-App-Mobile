@@ -12,7 +12,7 @@
       "img": "🍕",
       "name": "Pizza",
       "price": 189,
-      "stock": 40
+      "stock": 10
     },
     {
       "id": "3",
@@ -110,7 +110,7 @@
       "img": "F",
       "name": "PruebaUF",
       "price": 53,
-      "stock": 3
+      "stock": 14
     },
     {
       "id": "598f",
@@ -118,6 +118,34 @@
       "name": "PruebaVideo",
       "price": 77,
       "stock": 7
+    },
+    {
+      "id": "b72b",
+      "img": "J",
+      "name": "Pedro",
+      "price": 55,
+      "stock": 9
+    },
+    {
+      "id": "ccbb",
+      "img": "J",
+      "name": "Pedro1",
+      "price": 55,
+      "stock": 9
+    },
+    {
+      "id": "2fed",
+      "img": "A",
+      "name": "Prueba",
+      "price": 22,
+      "stock": 33
+    },
+    {
+      "id": "d6eb",
+      "img": "A",
+      "name": "Prueba",
+      "price": 22,
+      "stock": 33
     }
   ],
   "Orders": []

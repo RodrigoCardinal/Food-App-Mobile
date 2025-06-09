@@ -1,29 +1,13 @@
 import { Stack, Link } from "expo-router";
 import { FunctionsProvider } from "../hooks/useFunctions";
+
 import { Text, StyleSheet, TouchableOpacity } from "react-native";
 
 export default function Layout() {
   return (
     <FunctionsProvider>
       <Stack>
-        <Stack.Screen
-          name="AllFoodsPage"
-          options={{
-            title: "FoodApp",
-            headerTitleStyle: {
-              fontSize: 32,
-              fontWeight: "semibold",
-              color: "blue"
-            },
-            headerRight: () => (
-              <Link href="/AgregarComida" asChild>
-                <TouchableOpacity style={styles.button}>
-                  <Text style={styles.buttonText}>+ ADD</Text>
-                </TouchableOpacity>
-              </Link>
-            )
-          }}
-        />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }}/>
         <Stack.Screen
           name="DetailedCard"
           options={{
@@ -31,8 +15,8 @@ export default function Layout() {
             headerTitleStyle: {
               fontSize: 32,
               fontWeight: "semibold",
-              color: "blue"
-            }
+              color: "blue",
+            },
           }}
         />
         <Stack.Screen
@@ -42,19 +26,8 @@ export default function Layout() {
             headerTitleStyle: {
               fontSize: 32,
               fontWeight: "semibold",
-              color: "blue"
-            }
-          }}
-        />
-        <Stack.Screen
-          name="AgregarComida"
-          options={{
-            title: "Add Food",
-            headerTitleStyle: {
-              fontSize: 32,
-              fontWeight: "semibold",
-              color: "blue"
-            }
+              color: "blue",
+            },
           }}
         />
       </Stack>
@@ -69,11 +42,11 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     borderWidth: 1,
     borderColor: "blue",
-    borderRadius: 5
+    borderRadius: 5,
   },
   buttonText: {
     color: "blue",
     fontSize: 18,
-    fontWeight: "bold"
-  }
+    fontWeight: "bold",
+  },
 });

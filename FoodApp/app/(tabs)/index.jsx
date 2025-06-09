@@ -1,6 +1,6 @@
 import { ScrollView, StyleSheet, Text, View } from "react-native";
-import FoodItem from "../components/foodItem";
-import { useFunctions } from "../hooks/useFunctions";
+import FoodItem from "../../components/foodItem";
+import { useFunctions } from "../../hooks/useFunctions";
 import { TouchableOpacity } from "react-native";
 
 import { useFocusEffect } from "@react-navigation/native";
