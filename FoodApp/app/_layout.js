@@ -5,7 +5,7 @@ import { Text, StyleSheet, TouchableOpacity } from "react-native";
 export default function Layout() {
   return (
     <FunctionsProvider>
-      <Stack>
+      <Stack initialRouteName="AllFoodsPage">
         <Stack.Screen
           name="AllFoodsPage"
           options={{
