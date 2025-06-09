@@ -48,10 +48,10 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#d1d1d1",
     borderRadius: 10,
-    width: "100%",
+    width: "48%",
     alignItems: "center",
     gap: 8,
-    padding: 16
+    paddingVertical: 16
   },
   foodItemText: {
     fontSize: 18,

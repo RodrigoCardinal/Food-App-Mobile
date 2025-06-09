@@ -5,9 +5,9 @@ import { Text, StyleSheet, TouchableOpacity } from "react-native";
 export default function Layout() {
   return (
     <FunctionsProvider>
-      <Stack initialRouteName="AllFoodsPage">
+      <Stack initialRouteName="index">
         <Stack.Screen
-          name="AllFoodsPage"
+          name="index"
           options={{
             title: "FoodApp",
             headerTitleStyle: {

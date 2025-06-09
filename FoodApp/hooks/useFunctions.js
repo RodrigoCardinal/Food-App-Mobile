@@ -171,6 +171,22 @@ export function FunctionsProvider({ children }) {
     0
   );
 
+  const eliminarComida = async (id) => {
+    try {
+      const URL = `${URLngrok}/comidas/${id}`;
+      const response = await fetch(URL, {
+        method: "DELETE"
+      });
+      if (response.ok) {
+        console.log("Comida eliminada");
+      } else {
+        console.error("Error al eliminar comida");
+      }
+    } catch (error) {
+      console.error("Error de red:", error);
+    }
+  };
+
   return (
     <FunctionsContext.Provider
       value={{
@@ -188,7 +204,8 @@ export function FunctionsProvider({ children }) {
         finalizarCompra,
         agregarCantidadAJson,
         agregarComidaAJson,
-        finalizarCompra
+        finalizarCompra,
+        eliminarComida
       }}
     >
       {children}

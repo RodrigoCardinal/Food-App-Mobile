@@ -7,7 +7,7 @@ import { useRouter } from "expo-router";
 
 export default function DetailedCard() {
   const comida = useLocalSearchParams();
-  const { agregarCantidadAJson } = useFunctions();
+  const { agregarCantidadAJson, eliminarComida } = useFunctions();
   const [cantidadTotal, setCantidadTotal] = useState(
     comida.stock ? parseInt(comida.stock) : 0
   );
@@ -20,6 +20,22 @@ export default function DetailedCard() {
     Alert.alert(
       "Cantidad agregada",
       `Se han agregado ${cantidad} unidades de ${comida.name}.`,
+      [
+        {
+          text: "OK",
+          onPress: () => {
+            router.back();
+          }
+        }
+      ]
+    );
+  };
+
+  const handleEliminar = () => {
+    eliminarComida(comida.id);
+    Alert.alert(
+      "Comida eliminada",
+      `Se ha eliminado ${comida.name}. de la base de datos.`,
       [
         {
           text: "OK",
@@ -72,6 +88,13 @@ export default function DetailedCard() {
         onPress={() => handleAgregarCantidad()}
       >
         <Text style={styles.agregarAJsonText}>Agregar</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.eliminarDeJsonBtn}
+        onPress={() => handleEliminar()}
+      >
+        <Text style={styles.eliminarDeJsonText}>Eliminar de BD</Text>
       </TouchableOpacity>
     </View>
   );
@@ -146,6 +169,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 60
   },
   agregarAJsonText: {
+    color: "#fff",
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center"
+  },
+  eliminarDeJsonBtn: {
+    backgroundColor: "red",
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 60,
+    marginTop: 30
+  },
+  eliminarDeJsonText: {
     color: "#fff",
     fontSize: 24,
     fontWeight: "bold",

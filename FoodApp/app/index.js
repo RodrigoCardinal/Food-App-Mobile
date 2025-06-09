@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
 import FoodItem from "../components/foodItem";
 import { useFunctions } from "../hooks/useFunctions";
 import { TouchableOpacity } from "react-native";
@@ -20,32 +20,30 @@ export default function AllFoodsPage() {
   );
 
   return (
-    <View style={styles.pageContainer}>
-      <ScrollView
-        contentContainerStyle={styles.scroll}
-        style={styles.scrollView}
-      >
-        <View style={styles.container}>
-          {loading ? (
-            <Text>Cargando comidas...</Text>
-          ) : comidas.length === 0 ? (
-            <Text>No hay comidas disponibles</Text>
-          ) : (
-            comidas.map((comida, idx) => (
-              <FoodItem
-                key={comida.id || idx}
-                comida={comida}
-                orderCantidad={
-                  comida.stock -
-                  (orders.find((element) => element.id === comida.id)
-                    ?.quantity ?? 0)
-                }
-                addOrder={() => addOrder(comida)}
-              />
-            ))
+    <View style={{ flex: 1 }}>
+      <View style={styles.pageContainer}>
+        <FlatList
+          data={comidas}
+          keyExtractor={(item, idx) => item.id?.toString() || idx.toString()}
+          numColumns={2}
+          contentContainerStyle={styles.scroll}
+          columnWrapperStyle={{
+            justifyContent: "space-between",
+            marginBottom: 16
+          }}
+          renderItem={({ item }) => (
+            <FoodItem
+              comida={item}
+              orderCantidad={
+                item.stock -
+                (orders.find((element) => element.id === item.id)?.quantity ??
+                  0)
+              }
+              addOrder={() => addOrder(item)}
+            />
           )}
-        </View>
-      </ScrollView>
+        />
+      </View>
       <View style={styles.footer}>
         <Text style={styles.total}>Total: ${total}</Text>
         <TouchableOpacity
