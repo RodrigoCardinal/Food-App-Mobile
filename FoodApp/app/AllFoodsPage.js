@@ -21,59 +21,48 @@ export default function AllFoodsPage() {
 
   return (
     <View style={styles.pageContainer}>
-      <View style={styles.header}>
-        <Text style={styles.headerTitle}>FoodApp</Text>
-        <TouchableOpacity
-          style={styles.addBtn}
-          onPress={() => router.push("/AgregarComida")}
-        >
-          <Text style={styles.addBtnText}>+ Add</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.viewSinHeader}>
-        <ScrollView
-          contentContainerStyle={styles.scroll}
-          style={styles.scrollView}
-        >
-          <View style={styles.container}>
-            {loading ? (
-              <Text>Cargando comidas...</Text>
-            ) : comidas.length === 0 ? (
-              <Text>No hay comidas disponibles</Text>
-            ) : (
-              comidas.map((comida, idx) => (
-                <FoodItem
-                  key={comida.id || idx}
-                  comida={comida}
-                  orderCantidad={
-                    comida.stock -
-                    (orders.find((element) => element.id === comida.id)
-                      ?.quantity ?? 0)
-                  }
-                  addOrder={() => addOrder(comida)}
-                />
-              ))
-            )}
-          </View>
-        </ScrollView>
-        <View style={styles.footer}>
-          <Text style={styles.total}>Total: ${total}</Text>
-          <TouchableOpacity
-            style={[
-              styles.verOrdenBtn,
-              { opacity: orders.length === 0 ? 0.5 : 1 }
-            ]}
-            onPress={() =>
-              router.push({
-                pathname: "/Receipt",
-                params: { orders: JSON.stringify(orders) }
-              })
-            }
-            disabled={orders.length === 0}
-          >
-            <Text style={styles.verOrdenText}>Ver orden</Text>
-          </TouchableOpacity>
+      <ScrollView
+        contentContainerStyle={styles.scroll}
+        style={styles.scrollView}
+      >
+        <View style={styles.container}>
+          {loading ? (
+            <Text>Cargando comidas...</Text>
+          ) : comidas.length === 0 ? (
+            <Text>No hay comidas disponibles</Text>
+          ) : (
+            comidas.map((comida, idx) => (
+              <FoodItem
+                key={comida.id || idx}
+                comida={comida}
+                orderCantidad={
+                  comida.stock -
+                  (orders.find((element) => element.id === comida.id)
+                    ?.quantity ?? 0)
+                }
+                addOrder={() => addOrder(comida)}
+              />
+            ))
+          )}
         </View>
+      </ScrollView>
+      <View style={styles.footer}>
+        <Text style={styles.total}>Total: ${total}</Text>
+        <TouchableOpacity
+          style={[
+            styles.verOrdenBtn,
+            { opacity: orders.length === 0 ? 0.5 : 1 }
+          ]}
+          onPress={() =>
+            router.push({
+              pathname: "/Receipt",
+              params: { orders: JSON.stringify(orders) }
+            })
+          }
+          disabled={orders.length === 0}
+        >
+          <Text style={styles.verOrdenText}>Ver orden</Text>
+        </TouchableOpacity>
       </View>
     </View>
   );

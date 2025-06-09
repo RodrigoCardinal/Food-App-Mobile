@@ -1,5 +1,6 @@
-import { Stack } from "expo-router";
+import { Stack, Link } from "expo-router";
 import { FunctionsProvider } from "../hooks/useFunctions";
+import { Text, StyleSheet, TouchableOpacity } from "react-native";
 
 export default function Layout() {
   return (
@@ -8,13 +9,19 @@ export default function Layout() {
         <Stack.Screen
           name="AllFoodsPage"
           options={{
-            // title: "FoodApp",
-            // headerTitleStyle: {
-            //   fontSize: 24,
-            //   fontWeight: "semibold",
-            //   color: "blue"
-            // }
-            headerShown: false
+            title: "FoodApp",
+            headerTitleStyle: {
+              fontSize: 32,
+              fontWeight: "semibold",
+              color: "blue"
+            },
+            headerRight: () => (
+              <Link href="/AgregarComida" asChild>
+                <TouchableOpacity style={styles.button}>
+                  <Text style={styles.buttonText}>+ ADD</Text>
+                </TouchableOpacity>
+              </Link>
+            )
           }}
         />
         <Stack.Screen
@@ -54,3 +61,19 @@ export default function Layout() {
     </FunctionsProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  button: {
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderStyle: "solid",
+    borderWidth: 1,
+    borderColor: "blue",
+    borderRadius: 5
+  },
+  buttonText: {
+    color: "blue",
+    fontSize: 18,
+    fontWeight: "bold"
+  }
+});
