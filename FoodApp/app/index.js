@@ -44,24 +44,26 @@ export default function AllFoodsPage() {
           )}
         />
       </View>
-      <View style={styles.footer}>
-        <Text style={styles.total}>Total: ${total}</Text>
-        <TouchableOpacity
-          style={[
-            styles.verOrdenBtn,
-            { opacity: orders.length === 0 ? 0.5 : 1 }
-          ]}
-          onPress={() =>
-            router.push({
-              pathname: "/Receipt",
-              params: { orders: JSON.stringify(orders) }
-            })
-          }
-          disabled={orders.length === 0}
-        >
-          <Text style={styles.verOrdenText}>Ver orden</Text>
-        </TouchableOpacity>
-      </View>
+      {orders.length > 0 && (
+        <View style={styles.footer}>
+          <Text style={styles.total}>Total: ${total}</Text>
+          <TouchableOpacity
+            style={[
+              styles.verOrdenBtn,
+              { opacity: orders.length === 0 ? 0.5 : 1 }
+            ]}
+            onPress={() =>
+              router.push({
+                pathname: "/Receipt",
+                params: { orders: JSON.stringify(orders) }
+              })
+            }
+            disabled={orders.length === 0}
+          >
+            <Text style={styles.verOrdenText}>Ver orden</Text>
+          </TouchableOpacity>
+        </View>
+      )}
     </View>
   );
 }

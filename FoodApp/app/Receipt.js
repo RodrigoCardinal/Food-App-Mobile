@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   View,
   Text,
@@ -23,6 +23,12 @@ function Receipt() {
   } = useFunctions();
 
   const router = useRouter();
+
+  useEffect(() => {
+    if (orders.length === 0) {
+      router.back();
+    }
+  }, [orders]);
 
   const handleCompra = async () => {
     await finalizarCompra();
