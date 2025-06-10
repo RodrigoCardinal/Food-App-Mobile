@@ -34,10 +34,7 @@ function Receipt() {
     await finalizarCompra();
     Alert.alert("Compra finalizada", "Gracias por tu compra, ¡vuelve pronto!", [
       {
-        text: "GRACIAS!",
-        onPress: () => {
-          router.back();
-        }
+        text: "GRACIAS!"
       }
     ]);
   };

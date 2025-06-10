@@ -5,14 +5,14 @@
       "img": "🍔",
       "name": "Hamburguesa",
       "price": 157,
-      "stock": 140
+      "stock": 137
     },
     {
       "id": "2",
       "img": "🍕",
       "name": "Pizza",
       "price": 189,
-      "stock": 45
+      "stock": 44
     },
     {
       "id": "3",
@@ -54,21 +54,21 @@
       "img": "🥪",
       "name": "Sándwich",
       "price": 144,
-      "stock": 4
+      "stock": 10
     },
     {
       "id": "9",
       "img": "🥞",
       "name": "Panqueques",
       "price": 160,
-      "stock": 2
+      "stock": 4
     },
     {
       "id": "10",
       "img": "🍟",
       "name": "Papas fritas",
       "price": 116,
-      "stock": 6
+      "stock": 1
     },
     {
       "id": "70de",
