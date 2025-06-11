@@ -1,79 +1,84 @@
 import { Stack, Link } from "expo-router";
 import { FunctionsProvider } from "../hooks/useFunctions";
-import { Text, StyleSheet, TouchableOpacity } from "react-native";
+import { Text, StyleSheet, TouchableOpacity, View } from "react-native";
+import { ThemeProvider, useTheme } from "../hooks/themeContext";
+import HeaderRight from "./HeaderRight";
 
-export default function Layout() {
+function StackCompleto() {
+  const { theme } = useTheme();
   return (
-    <FunctionsProvider>
-      <Stack initialRouteName="index">
-        <Stack.Screen
-          name="index"
-          options={{
-            title: "FoodApp",
-            headerTitleStyle: {
-              fontSize: 32,
-              fontWeight: "semibold",
-              color: "blue"
-            },
-            headerRight: () => (
-              <Link href="/AgregarComida" asChild>
-                <TouchableOpacity style={styles.button}>
-                  <Text style={styles.buttonText}>+ ADD</Text>
-                </TouchableOpacity>
-              </Link>
-            )
-          }}
-        />
-        <Stack.Screen
-          name="DetailedCard"
-          options={{
-            title: "Food Details",
-            headerTitleStyle: {
-              fontSize: 32,
-              fontWeight: "semibold",
-              color: "blue"
-            }
-          }}
-        />
-        <Stack.Screen
-          name="Receipt"
-          options={{
-            title: "FoodApp Receipt",
-            headerTitleStyle: {
-              fontSize: 32,
-              fontWeight: "semibold",
-              color: "blue"
-            }
-          }}
-        />
-        <Stack.Screen
-          name="AgregarComida"
-          options={{
-            title: "Add Food",
-            headerTitleStyle: {
-              fontSize: 32,
-              fontWeight: "semibold",
-              color: "blue"
-            }
-          }}
-        />
-      </Stack>
-    </FunctionsProvider>
+    <Stack initialRouteName="index">
+      <Stack.Screen
+        name="index"
+        options={{
+          title: "FoodApp",
+          headerStyle: {
+            backgroundColor: theme.header
+          },
+          headerTitleStyle: {
+            fontSize: 32,
+            fontWeight: "semibold",
+            color: theme.color
+          },
+          headerTintColor: theme.color,
+          headerRight: () => <HeaderRight />
+        }}
+      />
+      <Stack.Screen
+        name="DetailedCard"
+        options={{
+          title: "Food Details",
+          headerStyle: {
+            backgroundColor: theme.header
+          },
+          headerTitleStyle: {
+            fontSize: 32,
+            fontWeight: "semibold",
+            color: theme.color
+          },
+          headerTintColor: theme.color
+        }}
+      />
+      <Stack.Screen
+        name="Receipt"
+        options={{
+          title: "FoodApp Receipt",
+          headerStyle: {
+            backgroundColor: theme.header
+          },
+          headerTitleStyle: {
+            fontSize: 32,
+            fontWeight: "semibold",
+            color: theme.color
+          },
+          headerTintColor: theme.color
+        }}
+      />
+      <Stack.Screen
+        name="AgregarComida"
+        options={{
+          title: "Add Food",
+          headerStyle: {
+            backgroundColor: theme.header
+          },
+          headerTitleStyle: {
+            fontSize: 32,
+            fontWeight: "semibold",
+            color: theme.color
+          },
+          headerTintColor: theme.color
+        }}
+      />
+    </Stack>
   );
 }
 
-const styles = StyleSheet.create({
-  button: {
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderStyle: "solid",
-    borderWidth: 1,
-    borderColor: "blue",
-    borderRadius: 5
-  },
-  buttonText: {
-    color: "blue",
-    fontSize: 18,
-    fontWeight: "bold"
-  }
-});
+export default function Layout() {
+  return (
+    <ThemeProvider>
+      <FunctionsProvider>
+        <StackCompleto />
+      </FunctionsProvider>
+    </ThemeProvider>
+  );
+}

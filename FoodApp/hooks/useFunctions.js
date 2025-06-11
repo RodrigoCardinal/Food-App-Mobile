@@ -6,7 +6,7 @@ export function FunctionsProvider({ children }) {
   const [comida, setComida] = useState({});
   const [comidas, setComidas] = useState([]);
   const [loading, setLoading] = useState(true);
-  var URLngrok = `https://b29a-2800-a4-1548-4000-1d97-3f1c-f50b-459b.ngrok-free.app`;
+  var URLngrok = `https://ce10-2800-a4-14c1-7300-e5c9-42f5-f8a4-c032.ngrok-free.app`;
   const fetchComidas = async () => {
     try {
       const URL = `${URLngrok}/comidas`;

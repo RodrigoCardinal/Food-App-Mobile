@@ -5,28 +5,28 @@
       "img": "🍔",
       "name": "Hamburguesa",
       "price": 157,
-      "stock": 137
+      "stock": 136
     },
     {
       "id": "2",
       "img": "🍕",
       "name": "Pizza",
       "price": 189,
-      "stock": 44
+      "stock": 41
     },
     {
       "id": "3",
       "img": "🍣",
       "name": "Sushi",
       "price": 132,
-      "stock": 51
+      "stock": 49
     },
     {
       "id": "4",
       "img": "🌮",
       "name": "Taco",
       "price": 175,
-      "stock": 1
+      "stock": 0
     },
     {
       "id": "5",
@@ -103,21 +103,21 @@
       "img": "🌸",
       "name": "Coty",
       "price": 99999,
-      "stock": 1
+      "stock": 0
     },
     {
       "id": "f9a1",
       "img": "F",
       "name": "PruebaUF",
       "price": 53,
-      "stock": 7
+      "stock": 0
     },
     {
       "id": "598f",
       "img": "😈",
       "name": "PruebaVideo",
       "price": 77,
-      "stock": 7
+      "stock": 6
     },
     {
       "id": "b498",
