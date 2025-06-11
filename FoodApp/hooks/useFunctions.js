@@ -6,7 +6,7 @@ export function FunctionsProvider({ children }) {
   const [comida, setComida] = useState({});
   const [comidas, setComidas] = useState([]);
   const [loading, setLoading] = useState(true);
-  var URLngrok = `https://ce10-2800-a4-14c1-7300-e5c9-42f5-f8a4-c032.ngrok-free.app`;
+  var URLngrok = `https://d946-190-64-49-12.ngrok-free.app`;
   const fetchComidas = async () => {
     try {
       const URL = `${URLngrok}/comidas`;
@@ -178,6 +178,9 @@ export function FunctionsProvider({ children }) {
         method: "DELETE"
       });
       if (response.ok) {
+        setOrders((prevOrders) =>
+          prevOrders.filter((order) => order.id !== id)
+        );
         console.log("Comida eliminada");
       } else {
         console.error("Error al eliminar comida");

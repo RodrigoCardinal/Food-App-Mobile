@@ -26,7 +26,7 @@
       "img": "🌮",
       "name": "Taco",
       "price": 175,
-      "stock": 0
+      "stock": 6
     },
     {
       "id": "5",
@@ -71,20 +71,6 @@
       "stock": 1
     },
     {
-      "id": "70de",
-      "img": "a",
-      "name": "a",
-      "price": 22,
-      "stock": 24
-    },
-    {
-      "id": "1d52",
-      "img": "b",
-      "name": "sss",
-      "price": 23,
-      "stock": 11
-    },
-    {
       "id": "af7b",
       "img": "😦",
       "name": "Prueba",
@@ -118,13 +104,6 @@
       "name": "PruebaVideo",
       "price": 77,
       "stock": 6
-    },
-    {
-      "id": "b498",
-      "img": "🐷",
-      "name": "Chancho",
-      "price": 85,
-      "stock": 10
     }
   ],
   "Orders": []
